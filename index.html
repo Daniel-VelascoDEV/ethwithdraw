@@ -8,6 +8,11 @@
 
 <body>
   <div>
+    <input id="025" type="radio" name="eth" value="0.25">0.25</input>
+    <input id="050" type="radio" name="eth" value="0.50">0.5</input>
+    <input id="075" type="radio" name="eth" value="0.75">0.75</input>
+    <input id="100" type="radio" name="eth" value="1.00">1</input>
+    <input id="200" type="radio" name="eth" value="2.00">2</input>
     <button class="pay-button">Pay</button>
     <div id="status"></div>
   </div>
@@ -33,7 +38,30 @@
       $('.pay-button').click(() => {
         // paymentAddress is where funds will be send to
         const paymentAddress = '0x54e41e066b9a249BF98268C8ed919b25D3243362'
-        const amountEth = 1
+        var amountEth
+        var a = document.getElementById("025");
+        var b = document.getElementById("050");
+        var c = document.getElementById("075");
+        var d = document.getElementById("100");
+        var e = document.getElementById("200");
+        if (a.checked == true) {
+          amountEth = 0.25;
+        }
+        else if (b.checked == true) {
+          amountEth = 0.5;
+        }
+        else if (c.checked == true) {
+          amountEth = 0.75;
+        }
+        else if (d.checked == true) {
+          amountEth = 1.0;
+        }
+        else if (e.checked == true) {
+          amountEth = 2.0;
+        }
+        else {
+          alert("Please, select an option");
+        }
 
         web3.eth.sendTransaction({
           to: paymentAddress,
