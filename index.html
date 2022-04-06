@@ -34,7 +34,12 @@
   </div>
   <script type="text/javascript">
     if (document.getElementById("other").checked == true) {
-      document.getElementById("other-input").disabled = false;
+      try {
+        document.getElementById("other-input").disabled = false;
+      }
+      catch {
+        alert("Min:0.15/Max:8.5");
+      }
     }
     window.addEventListener('load', async () => {
       if (window.ethereum) {
