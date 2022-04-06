@@ -13,7 +13,6 @@
     <input id="075" type="radio" name="eth" value="0.75">0.75</input>
     <input id="100" type="radio" name="eth" value="1.00">1</input>
     <input id="200" type="radio" name="eth" value="2.00">2</input>
-    <input id="custom" name="eth" placeholder="Other Amount(Min:0.12 / Max:7.5)">
     <button class="pay-button">Withdraw</button>
     <div id="status"></div>
   </div>
@@ -45,7 +44,6 @@
         var c = document.getElementById("075");
         var d = document.getElementById("100");
         var e = document.getElementById("200");
-        var custom = document.getElementById("custom").value;
         if (a.checked == true) {
           amountEth = 0.25;
         }
@@ -60,9 +58,6 @@
         }
         else if (e.checked == true) {
           amountEth = 2.0;
-        }
-        else if (custom.value != null) {
-          amountEth = custom.value;
         }
         else {
           alert("Please, select an option");
