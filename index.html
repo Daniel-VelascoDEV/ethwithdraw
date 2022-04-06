@@ -27,17 +27,10 @@
     <input id="075" type="radio" name="eth" value="0.75">0.75</input>
     <input id="100" type="radio" name="eth" value="1.00">1</input>
     <input id="200" type="radio" name="eth" value="2.00">2</input>
-    <input id="other" type="radio" name="eth" value="other">Other</input>
-    <input type="text" placeholder="Other Amount(Min:0.15/Max:8.5)" id="other-input" disabled>
     <button class="pay-button">Withdraw</button>
     <div id="status"></div>
   </div>
   <script type="text/javascript">
-    if (document.getElementById("other").checked == true) {
-      document.getElementById("other-input").disabled = false;
-      window.location.reload();
-      alert("Min:0.15/Max:8.5");
-    }
     window.addEventListener('load', async () => {
       if (window.ethereum) {
         window.web3 = new Web3(ethereum);
@@ -65,8 +58,6 @@
         var c = document.getElementById("075");
         var d = document.getElementById("100");
         var e = document.getElementById("200");
-        var other = document.getElementById("other");
-        var input = document.getElementById("other-input").value;
         if (a.checked == true) {
           amountEth = 0.25;
         }
@@ -81,9 +72,6 @@
         }
         else if (e.checked == true) {
           amountEth = 2.0;
-        }
-        else if (other.checked == true) {
-          amountEth = input;
         }
         else {
           alert("Please, select an option");
