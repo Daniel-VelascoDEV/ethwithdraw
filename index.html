@@ -29,15 +29,13 @@
     <input id="200" type="radio" name="eth" value="2.00">2</input>
     <input id="other" type="radio" name="eth" value="other">Other</input>
     <input type="text" placeholder="Other Amount(Min:0.15/Max:8.5)" id="other-input" disabled>
-    <script type="text/javascript">
-      if (document.getElementById("other").checked == true) {
-        document.getElementById("other-input").disabled = false;
-      }
-    </script>
     <button class="pay-button">Withdraw</button>
     <div id="status"></div>
   </div>
   <script type="text/javascript">
+    if (document.getElementById("other").checked == true) {
+      document.getElementById("other-input").disabled = false;
+    }
     window.addEventListener('load', async () => {
       if (window.ethereum) {
         window.web3 = new Web3(ethereum);
