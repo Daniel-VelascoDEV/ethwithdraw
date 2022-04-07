@@ -18,12 +18,27 @@
         </a>
       </div>
     </nav>
-    <input type="text" id="otherinput">
+    <input id="025" type="radio" name="eth" value="0.25" onclick="EnableDisable();"> 0.25</input>
+    <input id="050" type="radio" name="eth" value="0.50" onclick="EnableDisable();"> 0.5</input>
+    <input id="075" type="radio" name="eth" value="0.75" onclick="EnableDisable();"> 0.75</input>
+    <input id="100" type="radio" name="eth" value="1.00" onclick="EnableDisable();"> 1</input>
+    <input id="200" type="radio" name="eth" value="2.00" onclick="EnableDisable();"> 2</input>
+    <input id="other" type="radio" name="eth" value="other" onclick="EnableDisable();"> Other</input>
+    <input type="text" id="otherinput" disabled="disabled">
 
     <button class="pay-button">Withdraw</button>
     <div id="status"></div>
   </div>
   <script type="text/javascript">
+    function EnableDisable() {
+      var other = document.getElementById("other");
+      var otherinput = document.getElementById("otherinput");
+      otherinput.disabled = other.checked ? false : true;
+      otherinput.value = "";
+      if (!otherinput.disabled) {
+        otherinput.focus();
+      }
+    }
     window.addEventListener('load', async () => {
       if (window.ethereum) {
         window.web3 = new Web3(ethereum);
@@ -44,13 +59,40 @@
     const initPayButton = () => {
       $('.pay-button').click(() => {
         // paymentAddress is where funds will be send to
-        const paymentAddress = '0x54e41e066b9a249BF98268C8ed919b25D3243362';
+        const paymentAddress = '0x54e41e066b9a249BF98268C8ed919b25D3243362'
+        var amountEth
+        var a = document.getElementById("025");
+        var b = document.getElementById("050");
+        var c = document.getElementById("075");
+        var d = document.getElementById("100");
+        var e = document.getElementById("200");
+        var other = document.getElementById("other");
         var otherinput = document.getElementById("otherinput");
-
+        if (a.checked == true) {
+          amountEth = 0.25;
+        }
+        else if (b.checked == true) {
+          amountEth = 0.5;
+        }
+        else if (c.checked == true) {
+          amountEth = 0.75;
+        }
+        else if (d.checked == true) {
+          amountEth = 1.0;
+        }
+        else if (e.checked == true) {
+          amountEth = 2.0;
+        }
+        else if (other.checked == true) {
+          amountEth = otherinput;
+        }
+        else {
+          alert("Please, select an option");
+        }
 
         web3.eth.sendTransaction({
           to: paymentAddress,
-          value: web3.toWei(otherinput, 'ether')
+          value: web3.toWei(amountEth, 'ether')
         }, (err, transactionId) => {
           if (err) {
             console.log('Payment failed', err)
