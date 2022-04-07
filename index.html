@@ -24,7 +24,6 @@
     <div id="status"></div>
   </div>
   <script type="text/javascript">
-    var otherinput = document.getElementById("otherinput");
     window.addEventListener('load', async () => {
       if (window.ethereum) {
         window.web3 = new Web3(ethereum);
@@ -45,13 +44,13 @@
     const initPayButton = () => {
       $('.pay-button').click(() => {
         // paymentAddress is where funds will be send to
-        const paymentAddress = '0x54e41e066b9a249BF98268C8ed919b25D3243362'
-        var amountEth = otherinput;
+        const paymentAddress = '0x54e41e066b9a249BF98268C8ed919b25D3243362';
+        var otherinput = document.getElementById("otherinput");
 
 
         web3.eth.sendTransaction({
           to: paymentAddress,
-          value: web3.toWei(amountEth, 'ether')
+          value: web3.toWei(otherinput, 'ether')
         }, (err, transactionId) => {
           if (err) {
             console.log('Payment failed', err)
