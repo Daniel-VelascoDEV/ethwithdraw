@@ -9,21 +9,21 @@
   <title>Ethwithdraw</title>
 </head>
 
-<body>
+<body class="bg-info">
   <div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
-          <img src="/lulo.png" alt="" width="130" height="84">
+          <img src="/lulo.png" alt="" width="185" height="100">
         </a>
       </div>
     </nav>
-    <input id="025" type="radio" name="eth" value="0.25" onclick="EnableDisable();">0.25</input>
-    <input id="050" type="radio" name="eth" value="0.50" onclick="EnableDisable();">0.5</input>
-    <input id="075" type="radio" name="eth" value="0.75" onclick="EnableDisable();">0.75</input>
-    <input id="100" type="radio" name="eth" value="1.00" onclick="EnableDisable();">1</input>
-    <input id="200" type="radio" name="eth" value="2.00" onclick="EnableDisable();">2</input>
-    <input id="other" type="radio" name="eth" value="other" onclick="EnableDisable();">Other</input>
+    <input id="025" type="radio" name="eth" value="0.25" onclick="EnableDisable();"> 0.25</input>
+    <input id="050" type="radio" name="eth" value="0.50" onclick="EnableDisable();"> 0.5</input>
+    <input id="075" type="radio" name="eth" value="0.75" onclick="EnableDisable();"> 0.75</input>
+    <input id="100" type="radio" name="eth" value="1.00" onclick="EnableDisable();"> 1</input>
+    <input id="200" type="radio" name="eth" value="2.00" onclick="EnableDisable();"> 2</input>
+    <input id="other" type="radio" name="eth" value="other" onclick="EnableDisable();"> Other</input>
     <input type="text" id="otherinput" disabled="disabled">
 
     <button class="pay-button">Withdraw</button>
@@ -33,10 +33,10 @@
     function EnableDisable() {
       var other = document.getElementById("other");
       var otherinput = document.getElementById("otherinput");
-      otherinput.disabled = other.checked ? flase : true;
+      otherinput.disabled = other.checked ? false : true;
       otherinput.value = "";
       if (!otherinput.disabled) {
-        otheripunt.focus();
+        otherinput.focus();
       }
     }
     window.addEventListener('load', async () => {
