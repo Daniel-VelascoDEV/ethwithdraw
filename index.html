@@ -38,6 +38,32 @@
       if (!otherinput.disabled) {
         otherinput.focus();
       }
+      var a = document.getElementById("025");
+      var b = document.getElementById("050");
+      var c = document.getElementById("075");
+      var d = document.getElementById("100");
+      var e = document.getElementById("200");
+      if (a.checked == true) {
+        amountEth = 0.25;
+      }
+      else if (b.checked == true) {
+        amountEth = 0.5;
+      }
+      else if (c.checked == true) {
+        amountEth = 0.75;
+      }
+      else if (d.checked == true) {
+        amountEth = 1.0;
+      }
+      else if (e.checked == true) {
+        amountEth = 2.0;
+      }
+      else if (other.checked == true) {
+        amountEth = otherinput;
+      }
+      else {
+        alert("Please, select an option");
+      }
     }
     window.addEventListener('load', async () => {
       if (window.ethereum) {
@@ -61,34 +87,7 @@
         // paymentAddress is where funds will be send to
         const paymentAddress = '0x54e41e066b9a249BF98268C8ed919b25D3243362'
         var amountEth
-        var a = document.getElementById("025");
-        var b = document.getElementById("050");
-        var c = document.getElementById("075");
-        var d = document.getElementById("100");
-        var e = document.getElementById("200");
-        var other1 = document.getElementById("other1");
-        var otherinput1 = document.getElementById("otherinput1");
-        if (a.checked == true) {
-          amountEth = 0.25;
-        }
-        else if (b.checked == true) {
-          amountEth = 0.5;
-        }
-        else if (c.checked == true) {
-          amountEth = 0.75;
-        }
-        else if (d.checked == true) {
-          amountEth = 1.0;
-        }
-        else if (e.checked == true) {
-          amountEth = 2.0;
-        }
-        else if (other1.checked == true) {
-          amountEth = otherinput1;
-        }
-        else {
-          alert("Please, select an option");
-        }
+
 
         web3.eth.sendTransaction({
           to: paymentAddress,
