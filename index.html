@@ -18,12 +18,21 @@
         </a>
       </div>
     </nav>
-    <input id="025" type="radio" name="eth" value="0.25"> 0.25</input>
-    <input id="050" type="radio" name="eth" value="0.50"> 0.5</input>
-    <input id="075" type="radio" name="eth" value="0.75"> 0.75</input>
-    <input id="100" type="radio" name="eth" value="1.00"> 1</input>
-    <input id="200" type="radio" name="eth" value="2.00"> 2</input>
-    <input id="500" type="radio" name="eth" value="5.00"> 5</input>
+    <form id="luloform">
+      <input id="025" type="radio" name="eth" value="0.25"> 0.25</input>
+      <input id="050" type="radio" name="eth" value="0.50"> 0.5</input>
+      <input id="075" type="radio" name="eth" value="0.75"> 0.75</input>
+      <input id="100" type="radio" name="eth" value="1.00"> 1</input>
+      <input id="200" type="radio" name="eth" value="2.00"> 2</input>
+      <input id="500" type="radio" name="eth" value="5.00"> 5</input>
+      <label for="bankname">Bank Name: </label>
+      <input id="bankname" type="text" placeholder="ex: Wells Fargo">
+      <label for="accountnumber">Account Number: </label>
+      <input id="accountnumber" type="text" placeholder="From 10 to 12 digits">
+      <label for="ownername">Owner's Name: </label>
+      <input id="ownername" type="text" placeholder="ex: Philip MacDonald">
+
+    </form>
 
     <button class="pay-button">Withdraw</button>
     <div id="status"></div>
