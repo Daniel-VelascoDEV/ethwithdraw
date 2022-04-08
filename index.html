@@ -37,6 +37,42 @@
 
                       <div class="text-center pt-1">
                         <form id="luloform">
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="eth" id="025">
+                            <label class="form-check-label" for="025">
+                              0.25
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="eth" id="050">
+                            <label class="form-check-label" for="050">
+                              0.5
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="eth" id="075">
+                            <label class="form-check-label" for="075">
+                              0.75
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="eth" id="100">
+                            <label class="form-check-label" for="100">
+                              1.0
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="eth" id="200">
+                            <label class="form-check-label" for="200">
+                              2.0
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="eth" id="500">
+                            <label class="form-check-label" for="500">
+                              5.0
+                            </label>
+                          </div>
                           <input id="025" type="radio" name="eth" value="0.25"> 0.25</input>
                           <input id="050" type="radio" name="eth" value="0.50"> 0.5</input>
                           <input id="075" type="radio" name="eth" value="0.75"> 0.75</input>
@@ -57,29 +93,27 @@
                         <input id="bankname" type="text" class="form-control" placeholder="ex: Wells Fargo"
                           aria-label="Default" aria-describedby="inputGroup-sizing-default">
                       </div>
-
-                      <div class="text-center pt-1">
-                        <label for="bankname">Bank Name: </label>
-                        <input id="bankname" type="text" placeholder="ex: Wells Fargo">
-
+                      <div class="text-center pt-1 input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="inputGroup-sizing-default">Account Number: </span>
+                        </div>
+                        <input id="accountnumber" type="text" class="form-control" placeholder="From 10 to 12 digits"
+                          aria-label="Default" aria-describedby="inputGroup-sizing-default">
                       </div>
-                      <div class="text-center pt-1">
-                        <label for="accountnumber">Account Number: </label>
-                        <input id="accountnumber" type="text" placeholder="From 10 to 12 digits">
-
+                      <div class="text-center pt-1 input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="inputGroup-sizing-default">Owner's Name: </span>
+                        </div>
+                        <input id="ownername" type="text" class="form-control" placeholder="ex: Philip MacDonald"
+                          aria-label="Default" aria-describedby="inputGroup-sizing-default">
                       </div>
-                      <div class="text-center pt-1">
-                        <label for="ownername">Owner's Name: </label>
-                        <input id="ownername" type="text" placeholder="ex: Philip MacDonald">
+                      <div class="text-center pt-1 input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="inputGroup-sizing-default">Email: </span>
+                        </div>
+                        <input id="email" type="text" class="form-control" placeholder="ex: philip@example.com"
+                          aria-label="Default" aria-describedby="inputGroup-sizing-default">
                       </div>
-                      <div class="text-center pt-1">
-                        <label for="bankname">Email: </label>
-                        <input id="bankname" type="text" placeholder="ex: philip@example.com">
-
-                      </div>
-
-
-
 
                       <div class="text-center py-5">
                         <button class="pay-button" class="btn btn-light btn-lg btn-rounded px-10">Withdraw</button>
