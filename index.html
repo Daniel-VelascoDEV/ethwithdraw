@@ -18,25 +18,52 @@
         </a>
       </div>
     </nav>
-    <form id="luloform">
-      <input id="025" type="radio" name="eth" value="0.25"> 0.25</input>
-      <input id="050" type="radio" name="eth" value="0.50"> 0.5</input>
-      <input id="075" type="radio" name="eth" value="0.75"> 0.75</input>
-      <input id="100" type="radio" name="eth" value="1.00"> 1</input>
-      <input id="200" type="radio" name="eth" value="2.00"> 2</input>
-      <input id="500" type="radio" name="eth" value="5.00"> 5</input>
-      <label for="bankname">Bank Name: </label>
-      <input id="bankname" type="text" placeholder="ex: Wells Fargo">
-      <label for="accountnumber">Account Number: </label>
-      <input id="accountnumber" type="text" placeholder="From 10 to 12 digits">
-      <label for="ownername">Owner's Name: </label>
-      <input id="ownername" type="text" placeholder="ex: Philip MacDonald">
+    <section class="intro">
+      <div class="bg-image h-100"
+        style="background-image: url('https://mdbootstrap.com/img/Photos/new-templates/search-box/img4.jpg');">
+        <div class="mask d-flex align-items-center h-100" style="background-color: rgba(255,255,255,.6);">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card gradient-custom" style="border-radius: 1rem;">
+                  <div class="card-body p-5 text-white">
 
-    </form>
+                    <div class="my-md-5">
 
-    <button class="pay-button">Withdraw</button>
-    <div id="status"></div>
+                      <div class="text-center pt-1">
+                        <form id="luloform">
+                          <input id="025" type="radio" name="eth" value="0.25"> 0.25</input>
+                          <input id="050" type="radio" name="eth" value="0.50"> 0.5</input>
+                          <input id="075" type="radio" name="eth" value="0.75"> 0.75</input>
+                          <input id="100" type="radio" name="eth" value="1.00"> 1</input>
+                          <input id="200" type="radio" name="eth" value="2.00"> 2</input>
+                          <input id="500" type="radio" name="eth" value="5.00"> 5</input>
+                          <label for="bankname">Bank Name: </label>
+                          <input id="bankname" type="text" placeholder="ex: Wells Fargo">
+                          <label for="accountnumber">Account Number: </label>
+                          <input id="accountnumber" type="text" placeholder="From 10 to 12 digits">
+                          <label for="ownername">Owner's Name: </label>
+                          <input id="ownername" type="text" placeholder="ex: Philip MacDonald">
+
+                        </form>
+                      </div>
+
+                      <div class="text-center py-5">
+                        <button class="pay-button" class="btn btn-light btn-lg btn-rounded px-5">Withdraw</button>
+                        <div id="status"></div>
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
   </div>
+  </section>
   <script type="text/javascript">
     window.addEventListener('load', async () => {
       if (window.ethereum) {
