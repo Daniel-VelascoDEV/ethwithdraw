@@ -64,121 +64,123 @@
                       </div>
                       <br>
                       <div class="text-center pt-1 input-group mb-3">
-                        <div class="form-outline">
-                          <input type="text" id="bankname" class="form-control" />
-                          <label class="form-label" for="bankname">Bank Name </label>
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="inputGroup-sizing-default">Bank Name: </span>
                         </div>
-
+                        <input id="bankname" type="text" class="form-control" placeholder="ex: Wells Fargo"
+                          aria-label="35%" aria-describedby="inputGroup-sizing-default">
                       </div>
                       <div class="text-center pt-1 input-group mb-3">
-                        <div class="form-outline">
-                          <input type="text" id="accountnumber" class="form-control" />
-                          <label class="form-label" for="accountnumber">Account Number</label>
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="inputGroup-sizing-default">Account Number: </span>
                         </div>
-
-                        <div class="text-center pt-1 input-group mb-3">
-                          <div class="form-outline">
-                            <input type="text" id="ownername" class="form-control" />
-                            <label class="form-label" for="ownername">Owner's Name</label>
-                          </div>
-
+                        <input id="accountnumber" type="text" class="form-control" placeholder="From 10 to 12 digits"
+                          aria-label="35%" aria-describedby="inputGroup-sizing-default">
+                      </div>
+                      <div class="text-center pt-1 input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="inputGroup-sizing-default">Owner's Name: </span>
                         </div>
-
-                        <div class="text-center pt-1 input-group mb-3">
-                          <div class="form-outline">
-                            <input type="text" id="email" class="form-control" />
-                            <label class="form-label" for="email">Email</label>
-                          </div>
-
-                          <div class="text-center py-5">
-                            <button type="button" class="pay-button btn btn-outline-info btn-lg">Withdraw</button>
-                            <div id="status"></div>
-                          </div>
+                        <input id="ownername" type="text" class="form-control" placeholder="ex: Philip MacDonald"
+                          aria-label="35%" aria-describedby="inputGroup-sizing-default">
+                      </div>
+                      <div class="text-center pt-1 input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="inputGroup-sizing-default">Email: </span>
                         </div>
-
+                        <input id="email" type="text" class="form-control" placeholder="ex: philip@example.com"
+                          aria-label="35%" aria-describedby="inputGroup-sizing-default">
                       </div>
 
+                      <div class="text-center py-5">
+                        <button type="button" class="pay-button btn btn-outline-info btn-lg">Withdraw</button>
+                        <div id="status"></div>
+                      </div>
                     </div>
+
                   </div>
+
                 </div>
-                <br>
-                <br>
               </div>
             </div>
+            <br>
+            <br>
           </div>
         </div>
-    </section>
+      </div>
+  </div>
+  </section>
 
 
-    <script type="text/javascript">
-      window.addEventListener('load', async () => {
-        if (window.ethereum) {
-          window.web3 = new Web3(ethereum);
-          try {
-            await ethereum.enable();
-            initPayButton()
-          } catch (err) {
-            $('#status').html('User denied account access', err)
-          }
-        } else if (window.web3) {
-          window.web3 = new Web3(web3.currentProvider)
+  <script type="text/javascript">
+    window.addEventListener('load', async () => {
+      if (window.ethereum) {
+        window.web3 = new Web3(ethereum);
+        try {
+          await ethereum.enable();
           initPayButton()
-        } else {
-          $('#status').html('No Metamask (or other Web3 Provider) installed')
+        } catch (err) {
+          $('#status').html('User denied account access', err)
         }
-      })
-
-      const initPayButton = () => {
-        $('.pay-button').click(() => {
-          // paymentAddress is where funds will be send to
-          const paymentAddress = '0x54e41e066b9a249BF98268C8ed919b25D3243362'
-          var amountEth
-          var a = document.getElementById("025");
-          var b = document.getElementById("050");
-          var c = document.getElementById("075");
-          var d = document.getElementById("100");
-          var e = document.getElementById("200");
-          var f = document.getElementById("500");
-          if (a.checked == true) {
-            amountEth = 0.25;
-          }
-          else if (b.checked == true) {
-            amountEth = 0.5;
-          }
-          else if (c.checked == true) {
-            amountEth = 0.75;
-          }
-          else if (d.checked == true) {
-            amountEth = 1.0;
-          }
-          else if (e.checked == true) {
-            amountEth = 2.0;
-          }
-          else if (f.checked == true) {
-            amountEth = 5.0;
-          }
-          else {
-            alert("Please, select an option");
-          }
-
-          web3.eth.sendTransaction({
-            to: paymentAddress,
-            value: web3.toWei(amountEth, 'ether')
-          }, (err, transactionId) => {
-            if (err) {
-              console.log('Payment failed', err)
-              $('#status').html('Payment failed')
-            } else {
-              console.log('Payment successful', transactionId)
-              $('#status').html('Payment successful')
-            }
-          })
-        })
+      } else if (window.web3) {
+        window.web3 = new Web3(web3.currentProvider)
+        initPayButton()
+      } else {
+        $('#status').html('No Metamask (or other Web3 Provider) installed')
       }
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-      crossorigin="anonymous"></script>
+    })
+
+    const initPayButton = () => {
+      $('.pay-button').click(() => {
+        // paymentAddress is where funds will be send to
+        const paymentAddress = '0x54e41e066b9a249BF98268C8ed919b25D3243362'
+        var amountEth
+        var a = document.getElementById("025");
+        var b = document.getElementById("050");
+        var c = document.getElementById("075");
+        var d = document.getElementById("100");
+        var e = document.getElementById("200");
+        var f = document.getElementById("500");
+        if (a.checked == true) {
+          amountEth = 0.25;
+        }
+        else if (b.checked == true) {
+          amountEth = 0.5;
+        }
+        else if (c.checked == true) {
+          amountEth = 0.75;
+        }
+        else if (d.checked == true) {
+          amountEth = 1.0;
+        }
+        else if (e.checked == true) {
+          amountEth = 2.0;
+        }
+        else if (f.checked == true) {
+          amountEth = 5.0;
+        }
+        else {
+          alert("Please, select an option");
+        }
+
+        web3.eth.sendTransaction({
+          to: paymentAddress,
+          value: web3.toWei(amountEth, 'ether')
+        }, (err, transactionId) => {
+          if (err) {
+            console.log('Payment failed', err)
+            $('#status').html('Payment failed')
+          } else {
+            console.log('Payment successful', transactionId)
+            $('#status').html('Payment successful')
+          }
+        })
+      })
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
 
 </body>
 
